@@ -22,7 +22,7 @@ public class Artigo {
     public void iniciar(){
         url = "https://pt.wikipedia.org/";
         // Onde está o Chrome Driver
-        System.setProperty("webdriver.chrome.driver","drivers/chrome/88/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver","drivers/chrome/89/chromedriver.exe");
         driver = new ChromeDriver(); // instanciar o Selenium como Chrome Driver
         driver.manage().window().maximize(); // vai maximizar a janela do navegador
         // define uma espera implicita de 1 min, verificando o carregamento a cada milisegundo
@@ -36,7 +36,8 @@ public class Artigo {
 
         // Pesquisar por "Ovo de Páscoa"
         driver.findElement(By.id("searchInput")).sendKeys("Ovo de Páscoa");
-        driver.findElement(By.id("searchButton")).click(); // Clica na lupa
+        //driver.findElement(By.id("searchButton")).click(); // Clica na lupa
+        driver.findElement(By.cssSelector("button.wvui-button")).click();
 
         // Validar o titulo da página de retorno
         // vai pegar o texto que esta na linha ativa
